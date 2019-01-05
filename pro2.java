@@ -1,4 +1,3 @@
-package java_final_project;
 import java.util.Scanner;
 
 public class pro2 {
@@ -56,14 +55,15 @@ public class pro2 {
     // to reading array from input
     public static String[] read(){
         String[] arr = new String[0];
-        Scanner sc = new Scanner(System.in);
-        String one = sc.nextLine();
-        String oneone = one;
-        arr=add(arr,one);
-        do {
-            one = sc.nextLine();
-            arr=add(arr,one);
-        }while (!equals(oneone,one));
+        //File f = new File("./src/java_final_project/test.txt");
+        try {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNext()){
+                arr=add(arr,sc.nextLine());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return arr;
     }
     // to printing
@@ -327,6 +327,6 @@ public class pro2 {
             if (!p[i].equals("true") && !p[i].equals("false") && d!=2 && !is_a_number(p[i]) && !p[i].equals(""))
                 b=false;
         }
-        return b;
+        return b; 
     }
 }
